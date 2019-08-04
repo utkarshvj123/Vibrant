@@ -11,20 +11,13 @@ const routes: Routes = [
     redirectTo: '/signup',
     pathMatch: 'full'
   },
-
-  { path: 'signup',
+  {
+    path: 'signup',
     loadChildren  : './new-users/users.module#UsersModule'
   },
-
-  //
-  // { path: '', redirectTo: 'signup', pathMatch: 'full' }   ,
-  // {
-  //   path: 'signup', component: SignupComponent,
-  // },
-//   {
-//   path: '', redirectTo: '/signup', pathMatch: 'full'
-// },
-//   {path: '**', component: PageNotFoundComponent}
+   {
+     path: '**', component: PageNotFoundComponent
+   }
 ];
 
 @NgModule({
