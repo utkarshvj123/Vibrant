@@ -1,0 +1,244 @@
+<app-header></app-header>
+<div class="container">
+  <div class="container-fluid" style="margin-bottom: 40px; margin-top: 40px;">
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Results</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">Current</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">Upcoming</a>
+      </li>
+    </ul><!-- Tab panes -->
+    <div class="tab-content">
+      <div class="tab-pane active" id="tabs-1" role="tabpanel">
+
+        <div class="card">
+          <div class="table-hover-sm"
+               *ngFor="let result of results | paginate: { itemsPerPage: 1, currentPage: page,totalItems: gettingTotal }">
+            <table class="table table-striped table-bordered table-hover">
+              <tbody>
+              <tr scope="row">
+                <th>Period :</th>
+                <th>{{result.period}}</th>
+              </tr>
+              <tr scope="row">
+                <th>Game Id :</th>
+                <th>{{result.game_id}}</th>
+              </tr>
+              <tr scope="row">
+                <th>Competition Id</th>
+                <th>{{result.competition_id}}</th>
+              </tr>
+              <tr scope="row">
+                <th>Season Id</th>
+                <th>{{result.season_id}}</th>
+              </tr>
+              <tr scope="row">
+                <th>Home Name</th>
+                <th>{{result.home_name}}</th>
+              </tr>
+              <tr scope="row">
+                <th>Home Id</th>
+                <th>{{result.home_id}}</th>
+              </tr>
+              <tr scope="row">
+                <th>Away Name</th>
+                <th>{{result.away_name}}</th>
+              </tr>
+              <tr scope="row">
+                <th>Away Short Name</th>
+                <th>{{result.away_shortname}}</th>
+              </tr>
+              <tr scope="row">
+                <th>Home Short Name</th>
+                <th>{{result.home_shortname}}</th>
+              </tr>
+              <tr scope="row">
+                <th>Away Id</th>
+                <th>{{result.away_id}}</th>
+              </tr>
+              <tr scope="row">
+                <th>Home Score</th>
+                <th>{{result.home_score}}</th>
+              </tr>
+              <tr scope="row">
+                <th>Away Score</th>
+                <th>{{result.away_score}}</th>
+              </tr>
+              <tr scope="row">
+                <th>Home Shootout</th>
+                <th>{{result.home_shootout}}</th>
+              </tr>
+              <tr scope="row">
+                <th>Away Shootout</th>
+                <th>{{result.away_shootout}}</th>
+              </tr>
+              <tr scope="row">
+                <th>Penalty Win</th>
+                <th>{{result.penaltywin}}</th>
+              </tr>
+              <tr scope="row">
+                <th>Game winner Type</th>
+                <th>{{result.gamewinner_type}}</th>
+              </tr>
+
+              <tr scope="row">
+                <th>All goals</th>
+                <th>
+                  <div *ngFor="let allgoals of result.allgoals;let i = index ">
+                    <div style="text-align: center;background:black;color: white"> {{i + 1}}</div>
+                    <table class="table table-striped table-bordered table-hover">
+                      <tr>
+                        <th>Player Name</th>
+                        <th>{{allgoals.player_name}}</th>
+                      </tr>
+                      <tr>
+                        <th>Type</th>
+                        <th>{{allgoals.type}}</th>
+                      </tr>
+                      <tr>
+                        <th>Time</th>
+                        <th>{{allgoals.time}}</th>
+                      </tr>
+                      <tr>
+                        <th>Minutes</th>
+                        <th>{{allgoals.minutes}}</th>
+                      </tr>
+                      <tr>
+                        <th>Seconds</th>
+                        <th>{{allgoals.seconds}}</th>
+                      </tr>
+
+                    </table>
+                  </div>
+                </th>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="text-align: center">
+            <pagination-controls (pageChange)="pageChanged($event)" style="text-align: center;"></pagination-controls>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-pane" id="tabs-2" role="tabpanel">
+        <p>No data found.</p>
+      </div>
+      <div class="tab-pane" id="tabs-3" role="tabpanel">
+        <div class="card">
+          <div class="table-hover-sm" *ngFor="let upcomings of upcoming | paginate: { itemsPerPage: 1, currentPage: page,totalItems: gettingTotal }">
+            <table class="table table-striped table-bordered table-hover">
+              <tbody>
+              <tr scope="row">
+                <th>Period :</th>
+                <th>{{upcomings.period}}</th>
+              </tr>
+              <tr scope="row">
+                <th>Game Id :</th>
+                <th>{{upcomings.game_id}}</th>
+              </tr>
+              <tr scope="row">
+                <th>Competition Id</th>
+                <th>{{upcomings.competition_id}}</th>
+              </tr>
+              <tr scope="row">
+                <th>Season Id</th>
+                <th>{{upcomings.season_id}}</th>
+              </tr>
+              <tr scope="row">
+                <th>Home Name</th>
+                <th>{{upcomings.home_name}}</th>
+              </tr>
+              <tr scope="row">
+                <th>Home Id</th>
+                <th>{{upcomings.home_id}}</th>
+              </tr>
+              <tr scope="row">
+                <th>Away Name</th>
+                <th>{{upcomings.away_name}}</th>
+              </tr>
+              <tr scope="row">
+                <th>Away Short Name</th>
+                <th>{{upcomings.away_shortname}}</th>
+              </tr>
+              <tr scope="row">
+                <th>Home Short Name</th>
+                <th>{{upcomings.home_shortname}}</th>
+              </tr>
+              <tr scope="row">
+                <th>Away Id</th>
+                <th>{{upcomings.away_id}}</th>
+              </tr>
+              <tr scope="row">
+                <th>Away Shortname</th>
+                <th>{{upcomings.away_shortname}}</th>
+              </tr>
+              <tr scope="row">
+                <th>Home Shortname</th>
+                <th>{{upcomings.home_shortname}}</th>
+              </tr>
+              <tr scope="row">
+                <th>Venue Name</th>
+                <th>{{upcomings.venue_name}}</th>
+              </tr>
+              <tr scope="row">
+                <th>Venue City</th>
+                <th>{{upcomings.venue_city}}</th>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="text-align: center">
+            <pagination-controls (pageChange)="pageChanged($event)" style="text-align: center;"></pagination-controls>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--<div class="wrapper">-->
+<!--  <div class="tabs">-->
+<!--    <div class="tab">-->
+<!--      <input type="radio" name="css-tabs" id="tab-1" checked class="tab-switch">-->
+<!--      <label for="tab-1" class="tab-label">Results</label>-->
+<!--      <div class="tab-content" *ngFor="let result of results">-->
+<!--        <table class="table table-striped">-->
+<!--          <tbody>-->
+<!--          <tr scope="row">-->
+<!--            <th>Period :</th>-->
+<!--            <th>{{result.period}}</th>-->
+<!--          </tr>-->
+<!--          <tr scope="row">-->
+<!--            <th>Period</th>-->
+<!--            <th>{{result.period}}</th>-->
+<!--          </tr>-->
+<!--          </tbody>-->
+<!--        </table>-->
+
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="tab">-->
+<!--      <input type="radio" name="css-tabs" id="tab-2" class="tab-switch">-->
+<!--      <label for="tab-2" class="tab-label">Current</label>-->
+<!--      <div class="tab-content" *ngFor="let current of current">-->
+<!--{{current}}-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="tab">-->
+<!--      <input type="radio" name="css-tabs" id="tab-3" class="tab-switch">-->
+<!--      <label for="tab-3" class="tab-label">Upcomming</label>-->
+<!--      <div class="tab-content" *ngFor="let upcomming of upcoming">-->
+<!--        {{upcomming}}-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <p>Example line outside of tab box</p>-->
+<!--</div>-->
+
+<app-footer></app-footer>

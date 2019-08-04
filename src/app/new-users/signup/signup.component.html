@@ -1,0 +1,32 @@
+<app-header></app-header>
+<div class="form-style-5">
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <fieldset>
+      <legend><span class="number">1</span> Sign up</legend>
+      <div class="form-group">
+      <input type="text" name="field2" placeholder="Your Email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && myForm.controls.email.errors }">
+<!--      <div *ngIf="submitted && myForm.controls.email.errors" class="invalid-feedback">-->
+<!--        <div *ngIf="myForm.controls.email.errors.required">Email is required</div>-->
+<!--&lt;!&ndash;        <div *ngIf="myForm.controls.email.errors.email">Email must be a valid email address</div>&ndash;&gt;-->
+<!--      </div>-->
+        <div *ngIf="myForm.controls['email'].invalid && (myForm.controls['email'].dirty || myForm.controls['email'].touched)" class="alert alert-danger">
+          <div *ngIf="myForm.controls['email'].errors.required">
+            Email is required.
+          </div>
+          <div *ngIf="myForm.controls['email'].errors.email">Email must be a valid email address</div>
+        </div>
+      </div>
+      <input type="text" name="field2" placeholder="Name" formControlName="name">
+      <input type="number" name="field2" placeholder="Phone" formControlName="phone" minlength="10">
+      <input type="date" name="field1" placeholder="Date" formControlName="date">
+      <input type="password" name="field1" placeholder="Password" formControlName="password">
+      <input type="password" name="field1" placeholder="Confirm password" formControlName="confirm_password">
+<!--    <input type="submit" value="Apply" [disabled]="!myForm.valid"/>-->
+      <div style="text-align: center">
+      <button class="btn btn-success" [disabled]="!myForm.valid" type="submit" value="Apply">Submit</button>
+      </div>
+    </fieldset>
+  </form>
+</div>
+
+<app-footer></app-footer>
