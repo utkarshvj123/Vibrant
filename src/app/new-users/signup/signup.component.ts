@@ -11,9 +11,11 @@ export class SignupComponent implements OnInit {
   myForm: FormGroup;
   constructor(private fb: FormBuilder, private route: Router) { }
   submitted = false;
+  notMatched: boolean;
   ngOnInit() {
+    this.notMatched = false;
     this.myForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]],
       name: ['', Validators.required],
       phone: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]],
       date: ['', Validators.required],
@@ -27,6 +29,7 @@ export class SignupComponent implements OnInit {
 
     if (this.myForm.value.password !== this.myForm.value.confirm_password ) {
       console.log('Error in password');
+      this.notMatched = true;
     } else {
       console.log('Password same');
       this.route.navigate(['/fixtures']);

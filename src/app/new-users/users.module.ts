@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import Swal from 'sweetalert2';
+
 
 import { UsersRoutingModule } from './users-routing.module';
 import { SignupComponent } from './signup/signup.component';
@@ -9,6 +11,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination';
 
 
+
 @NgModule({
   declarations: [SignupComponent, FixturesComponent],
   imports: [
@@ -16,7 +19,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     UsersRoutingModule,
     CoreModule,
     ReactiveFormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
   ],
   exports: [SignupComponent]
 })

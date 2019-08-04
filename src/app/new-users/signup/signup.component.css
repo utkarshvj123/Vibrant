@@ -105,3 +105,23 @@
   background: black;
 }
 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=date]::-webkit-inner-spin-button,
+input[type=date]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+.alert{
+  padding-left: 9px;
+  border-top-width: 0px;
+  margin-bottom: 0px;
+  padding-right: 1px;
+  padding-bottom: 3px;
+  padding-top: 3px;
+}

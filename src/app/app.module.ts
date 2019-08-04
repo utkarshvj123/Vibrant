@@ -10,6 +10,9 @@ import {CoreModule} from './core/core.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import {HttpClientModule} from '@angular/common/http';
 import {NgxPaginationModule} from 'ngx-pagination';
+import Swal from 'sweetalert2';
+
+
 
 @NgModule({
   declarations: [
