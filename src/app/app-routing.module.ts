@@ -15,9 +15,9 @@ const routes: Routes = [
     path: 'signup',
     loadChildren  : './new-users/users.module#UsersModule'
   },
-   {
-     path: '**', component: PageNotFoundComponent
-   }
+//    {
+//      path: '**', component: PageNotFoundComponent
+//    }
 ];
 
 @NgModule({
